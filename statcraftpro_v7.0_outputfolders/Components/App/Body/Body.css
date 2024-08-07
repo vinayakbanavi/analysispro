@@ -1,0 +1,28 @@
+
+.application-body {
+  /* Add your styles for the content body here */
+  /* height: var(--application-body-height); */
+  flex: 1;
+  background-color: rgb(255, 255, 255);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.application-content-wrapper {
+  flex: 1;
+  flex-shrink: 0;
+  
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-container{
+  display: flex;
+  gap: 2px;
+  flex: 1;
+}
+
+*{
+  box-sizing: border-box;
+}

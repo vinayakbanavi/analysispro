@@ -1,0 +1,178 @@
+/* ------------------------ controlbar ------------------------ */
+.applicationviewcontrols_wrappper{
+  height: var(--application-body-datatab-controllbar-height);
+}
+
+.applicationview_controlbar {
+  display: flex;
+  height: 100%;
+  color: white;
+  width: fit-content;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  overflow: hidden;
+}
+
+#datatab-sourceselection-searchbar {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: inherit;
+  color: inherit;
+  cursor: inherit;
+}
+
+#datatab-sourceselection-searchbar::marker {
+  color: yellow;
+}
+
+.datatab-sourceselection-searchbar {
+  height: 100%;
+  flex-grow: 1;
+}
+
+.datatab-sourcelist-dropdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 25px;
+}
+
+.datatab-sourceselection-wrapper {
+  background: var(--option-background-activecolor);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: 200px;
+}
+
+.datatab-sourceselection-searchbar-container {
+  padding-left: 10px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: 200px;
+}
+
+.datatab-sourceselection-wrapper:hover {
+  background-color: var(--option-hover-color);
+}
+
+/* sourcename selection list */
+#datatab-sourcelist-container {
+  display: none;
+  position: absolute;
+  background: var(--option-background-activecolor);
+  color: white;
+  /* box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); */
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.5), 0 7px 10px 0 rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  width: 200px;
+  min-height: 200px;
+  max-height: 300px;
+  height: auto;
+  top: 112px;
+  overflow: auto;
+}
+
+#datatab-sourcelist-container div {
+  height: 25px;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+
+  /* Disable text selection */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Standard */
+}
+
+#datatab-sourcelist-container div:hover {
+  background-color: var(--option-hover-color);
+}
+
+/* view controls */
+.controls_wrapper {
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.controls_wrapper > div {
+  width: auto;
+  height: auto;
+  display: flex;
+}
+
+.viewtabcontrol {
+  padding-left: 10px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  width: 100px;
+  border-left: 1px solid rgba(128, 128, 128, 0.651);
+  background: var(--option-background-inactiveclor);
+  color: white;
+}
+
+#activeview > .viewtabcontrol:hover {
+  background-color: var(--option-hover-color);
+}
+
+#activeview > .viewtabcontrol {
+  background: var(--option-background-activecolor);
+  color: white;
+}
+
+#viewslist > .viewtabcontrol:hover {
+  background: var(--option-background-hovercolor);
+}
+
+@media screen and (max-width: 499px) {
+  /* CSS rules for screens less than 500px wide */
+  /* Example */
+  .controls_wrapper {
+    display: block;
+    width: 100px;
+  }
+
+  .viewslist {
+    display: none;
+    border-top: 2px solid transparent;
+  }
+
+  #viewslist > .viewtabcontrol {
+    background: var(--option-background-activecolor);
+    color: white;
+  }
+
+  #viewslist > .viewtabcontrol:hover {
+    background-color: var(--option-hover-color);
+  }
+
+  /* Show viewslist on hover */
+  #activeview:hover + #viewslist,
+  #viewslist:hover {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 1000;
+    box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.5), 0 7px 10px 0 rgba(0, 0, 0, 0.5);
+  }
+}
+
+.seperation_bar {
+  position: absolute;
+  width: 1.5px;
+  height: 18px;
+  background-color: rgba(255, 255, 255, 0.568);
+  transform: translate(-50%, 20%);
+}

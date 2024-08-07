@@ -1,0 +1,122 @@
+:root {
+  /* dynamic dimensions */
+
+  /* Global */
+
+  /* Components */
+
+  /* App */
+  --window-height: 100vh;
+
+  --application-contentbody-width: 100vw;
+  --application-menubar-width: 200px;
+  --sidenav-status-width: 0px;
+
+  --application-contentbodycontainer-width: calc(var(--application-contentbody-width) - var(--application-menubar-width) - var(--application-menubar-width));
+
+  /* Header */
+  --application-header-height: 80px;
+
+  /* Body */
+  --application-body-height: calc(var(--window-height) - var(--application-header-height));
+  
+
+  /* Home Tab */
+
+  /* Data Tab */
+  --application-body-tab-pages-padding: 5px;
+  --application-body-datatab-controllbar-height: 25px;
+  --data-tab-viewcontainers-height: calc(var(--application-body-height) - var(--application-body-tab-pages-padding) - var(--application-body-datatab-controllbar-height));
+
+  --data-tab-width: 100vw;
+  --data-tab-menu-width: 200px;
+  --data-tab-page-width: calc(var(--data-tab-width) - var(--data-tab-menu-width));
+
+  --data-tab-viewcontainer-height: var(--data-tab-viewcontainers-height);
+  --data-tab-view-table-header-height: 30px;
+  --data-tab-view-table-body-height: calc(var(--window-height) - var(--application-header-height) - var(--application-body-tab-pages-padding) - var(--application-body-datatab-controllbar-height) - var(--data-tab-view-table-header-height));
+
+  /* Analysis Tab */
+
+  /* Footer */
+
+
+  /* UI Colors */
+  --primary-color:#282d33;
+  --option-background-activecolor: #282d33;
+  --option-background-inactiveclor: #595959;
+  --option-background-hovercolor:#3c444d;
+  --option-hover-color: #1b1f23;
+  --border-color: rgba(161, 193, 202, 0.75);
+  --table_header-color: #575a70;
+
+  --light-text-color:rgba(255, 255, 255, 0.85);
+}
+
+body {
+
+  height: var(--window-height);
+
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+  font-size: 10pt;
+  font-family: LatoWeb, Lato, Helvetica, sans-serif, Arial;
+
+  display: flex;
+  flex-direction: column;
+}
+
+input, textarea, select, button, pre, code, kbd, samp {
+  font-family: inherit; 
+}
+
+/* ------------------------ scrollbar ------------------------ */
+
+/* Customize scrollbar track */
+.custom-scrollbar-dark::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Customize scrollbar handle */
+.custom-scrollbar-dark::-webkit-scrollbar-thumb {
+  background-color: #d9d9d9;
+  border-radius: 5px;
+}
+
+/* Customize scrollbar track */
+.custom-scrollbar-dark::-webkit-scrollbar-track {
+  background: var(--option-background-activecolor);
+}
+
+/* Change scrollbar track on hover */
+.custom-scrollbar-dark:hover::-webkit-scrollbar-thumb {
+  background-color: #d9d9d9;
+}
+
+
+
+/* Customize scrollbar track for light version */
+.custom-scrollbar-light::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Customize scrollbar handle for light version */
+.custom-scrollbar-light::-webkit-scrollbar-thumb {
+  background-color: #888888;
+  border-radius: 5px;
+}
+
+/* Customize scrollbar track for light version */
+.custom-scrollbar-light::-webkit-scrollbar-track {
+  background: var(--option-background-lightcolor); 
+}
+
+/* Change scrollbar track on hover for light version */
+.custom-scrollbar-light:hover::-webkit-scrollbar-thumb {
+  background-color: #888888;
+}
+
+
+
+

@@ -1,0 +1,134 @@
+/* ---------------------------------------- metadata table ---------------------------------------- */
+#metadata_table {
+  border-collapse: collapse;
+  width: auto;
+  height: 100%;
+  display: block;
+  table-layout: fixed;
+  word-wrap: break-word;
+  color: black;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- table header ---------- */
+#metadata_table > .table_head {
+  display: block;
+  height: var(--data-tab-view-table-header-height);
+  position: relative;
+  overflow: visible;
+  z-index: 5;
+  top: 0;
+}
+
+#metadata_table > thead tr > :first-child {
+  position: relative;
+  z-index: 5;
+  left: 0;
+  top: 0;
+}
+
+#metadata_table th {
+  min-width: 100px;
+  height: 30px;
+  line-height: 8pt;
+  border: solid 1px lightblue;
+  text-align: center;
+  word-wrap: break-word;
+  padding: 2px 5px;
+  background-color: #ccc;
+}
+
+#metadata_table .column_header {
+  position: relative;
+  z-index: 3;
+}
+
+/* ---------- table body ---------- */
+
+#metadata_table > .table_body {
+  flex: 1;
+  display: block;
+  overflow: auto;
+  /* height: var(--data-tab-view-table-body-height); */
+  position: relative;
+}
+
+#metadata_table > tbody tr > :first-child {
+  background: #ddd;
+  position: sticky;
+  z-index: 1;
+  left: 0;
+}
+
+#metadata_table .index-cell {
+  border-left: solid 1px lightblue;
+}
+
+#metadata_table td {
+  min-width: 100px;
+  height: 25px;
+  line-height: 8pt;
+  border-bottom: solid 1px lightblue;
+  border-right: solid 1px lightblue;
+  text-align: center;
+  word-wrap: break-word;
+  word-break: keep-all;
+  padding: 2px 5px;
+  white-space: nowrap;
+  position: relative;
+
+  user-select: none;
+}
+
+#metadata_table tr:hover {
+  background: #b3cccc;
+  cursor: pointer;
+}
+
+#metadata_table .data-row.selected{
+  background: rgb(98, 140, 140);
+}  
+
+#metadata_table .data-cell:focus {
+  outline: none;
+  
+  background: var(--projects-page-primary-color);
+  background: rgb(69, 99, 99);
+  color: var(--light-text-color);
+}
+
+#metadata_table .datatype-selection-wrapper{
+  display: flex;
+  height: 100%;
+  width: 100%;
+
+  cursor: pointer;
+  position: relative;
+}
+
+#metadata_table .datatype-container{
+  border: none;
+  background: none;
+  outline: none;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+
+/* Prevent text selection */
+.no-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Safari */
+  -khtml-user-select: none;    /* Konqueror HTML */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently supported by Chrome and Opera */
+}

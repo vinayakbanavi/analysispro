@@ -1,0 +1,54 @@
+.context-menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px 0;
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.5), 0 7px 10px 0 rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 2;
+  user-select: none;
+}
+
+.menu-option {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px; /* Adjust padding as needed */
+  cursor: pointer; /* Make the menu option clickable */
+  gap: 10px;
+}
+
+.menu-option:hover {
+  background-color: #f0f0f0;
+}
+
+.context-menu-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.context-menu-icon img {
+  width: 100%;
+}
+
+.context-menu-label {
+  font-weight: inherit;
+}
+
+/* Responsive Context Menu design */
+/* @media screen and (max-width: 500px) {
+  .context-menu {
+    flex-direction: row;
+  }
+
+  .context-menu-icon {
+    width: 15px;
+    height: 15px;
+  }
+
+  .context-menu .context-menu-label {
+    display: none;
+  }
+} */

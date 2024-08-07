@@ -1,0 +1,157 @@
+:root {
+  --analyses-tab-page-execute-width: 100vw;
+  --projects-page-padding-width: 5px;
+
+  --projects-page-inputswrapper-width: 350px;
+  --projects-page-outputswrapper-width: calc(var(--analyses-tab-page-execute-width) - var(--projects-page-inputswrapper-width) - 3 * var(--projects-page-padding-width));
+
+  --projects-page-primary-color: #f0f0f0;
+  --projects-page-primary-color-popup: #d6d6d6;
+  --projects-page-primary-color-popup1: #e8e8e8;
+  --projects-page-primary-color-popup-button: #bebebe;
+  --projects-page-primary-color-popup-button-hover: #adadad;
+
+  --projects-page-border: 2px solid #a8a8a84f;
+
+  --projects-input-header-height: 80px;
+  --projects-input-header-width: 350px;
+
+  --projects-output-header-height: 80px;
+  --projects-output-header-width: calc(var(--analyses-tab-page-execute-width) - var(--projects-page-inputswrapper-width) - 3 * var(--projects-page-padding-width));
+
+  --projects-output-analysistype-selection-width: 250px;
+  --projects-output-options-width: 250px;
+  --projects-output-analysislist-container-width: calc(var(--projects-output-header-width) - var(--projects-output-analysistype-selection-width) - var(--projects-output-options-width));
+}
+
+/* Reusable CSS Properties */
+
+/* Dropdown List */
+
+.searchbar-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: var(--primary-color);
+  color: var(--light-text-color);
+  cursor: pointer;
+  border-bottom: 1px solid;
+}
+
+.searchbar {
+  display: flex;
+  flex-grow: 1;
+  /* width: 90%; */
+  height: 100%;
+}
+
+.searchbar-input {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: inherit;
+  color: inherit;
+  cursor: inherit;
+  padding-left: 10px;
+  text-overflow: ellipsis;
+
+}
+
+.dropdown-toggle {
+  height: 100%;
+  display: flex;
+  flex-basis: 30px;
+  /* width: 10%; */
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown-container {
+  display: none;
+  position: absolute;
+  background: var(--primary-color);
+  color: white;
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.5), 0 7px 10px 0 rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  width: 100%;
+  min-height: 200px;
+  max-height: 300px;
+  height: auto;
+  overflow: auto;
+}
+
+.dropdown-container div {
+  height: 25px;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+
+  /* Disable text selection */
+  -webkit-user-select: none; 
+  -moz-user-select: none;
+  -ms-user-select: none; 
+  user-select: none;
+  cursor: pointer;
+}
+
+.dropdown-container div:hover {
+  background-color: var(--option-hover-color);
+}
+
+/* ----------------------------------------------------------------------------------------------------------------------- */
+
+.analyses-tab-page-execute {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  gap: 5px;
+}
+
+/* left panel */
+.projects-page-inputswrapper {
+  flex-basis: 300px;
+  flex-shrink: 0;
+  height: 100%;
+  background: var(--projects-page-primary-color);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-input-header {
+  width: 100%;
+  height: var(--projects-input-header-height);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-bottom: var(--projects-page-border);
+}
+
+.projects-input-header-item {
+  height: 50%;
+}
+
+.projects-input-header-item-analysisname {
+  display: flex;
+  align-items: center;
+}
+
+.analysis-name {
+  padding-left: 10px;
+}
+
+/* right panel */
+.projects-page-outputswrapper {
+  flex-grow: 1;
+  height: 100%;
+  background: var(--projects-page-primary-color);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ------------------------------------------------------------------------------------ */
+

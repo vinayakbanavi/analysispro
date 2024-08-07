@@ -1,0 +1,47 @@
+.data-tab-menu {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 200px;
+  width: 0px;
+  
+  background-color: var( --primary-color);
+  z-index: 2;
+  color: var(--light-text-color);
+}
+
+.data-tab-menu-option
+{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height: 30px;
+    padding: 0px 10px;
+    text-wrap: nowrap;
+}
+
+.data-tab-menu-option:hover
+{
+    background-color: var(--option-hover-color);
+  
+}
+
+.data-tab-menu-option.active {
+  background-color: var(--option-hover-color);
+}
+
+.data-tab-pages {
+  flex: 1;
+  padding: var(--application-body-tab-pages-padding);
+  width: 100vw;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.data-tab-page{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}

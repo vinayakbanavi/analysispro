@@ -1,0 +1,7 @@
+.data-tab-viewcontainers {
+  /* height: var(--data-tab-viewcontainers-height); */
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+}

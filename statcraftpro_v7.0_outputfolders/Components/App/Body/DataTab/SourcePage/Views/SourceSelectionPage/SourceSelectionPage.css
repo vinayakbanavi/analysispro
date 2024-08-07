@@ -1,0 +1,85 @@
+/* ---------------------------------------- sourcelist table ---------------------------------------- */
+#sourcelist_table {
+  border-collapse: collapse;
+  width: auto;
+  height: 100%;
+  display: block;
+  table-layout: fixed;
+  word-wrap: break-word;
+  color: black;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- table header ---------- */
+#sourcelist_table > .table_head {
+  display: block;
+  height: var(--data-tab-view-table-header-height);
+  position: relative;
+  overflow: visible;
+  z-index: 5;
+  top: 0;
+}
+
+#sourcelist_table > thead tr > :first-child {
+  position: relative;
+  z-index: 5;
+  left: 0;
+  top: 0;
+}
+
+#sourcelist_table th {
+  min-width: 150px;
+  height: 30px;
+  line-height: 8pt;
+  border: solid 1px lightblue;
+  text-align: center;
+  word-wrap: break-word;
+  padding: 2px 5px;
+  background-color: #ccc;
+}
+
+#sourcelist_table .column_header {
+  position: relative;
+  z-index: 3;
+}
+
+/* ---------- table body ---------- */
+
+#sourcelist_table > .table_body {
+  flex: 1;
+  display: block;
+  overflow: auto;
+  /* height: var(--data-tab-view-table-body-height); */
+  position: relative;
+}
+
+#sourcelist_table > tbody tr > :first-child {
+  background: #ddd;
+  position: sticky;
+  z-index: 1;
+  left: 0;
+}
+
+#sourcelist_table .index-cell {
+  border-left: solid 1px lightblue;
+}
+
+#sourcelist_table td {
+  min-width: 150px;
+  height: 25px;
+  line-height: 8pt;
+  border-bottom: solid 1px lightblue;
+  border-right: solid 1px lightblue;
+  text-align: center;
+  word-wrap: break-word;
+  word-break: keep-all;
+  padding: 2px 5px;
+  white-space: nowrap;
+}
+
+#sourcelist_table tr:hover {
+  background: #b3cccc;
+  cursor: pointer;
+}

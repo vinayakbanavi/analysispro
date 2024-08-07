@@ -1,0 +1,38 @@
+.analyses-tab-menu {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 200px;
+  width: 0px;
+  
+  background-color: var( --primary-color);
+  z-index: 2;
+  color: var(--light-text-color);
+}
+
+.analyses-tab-menu-option
+{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height: 30px;
+    padding: 0px 10px;
+    text-wrap: nowrap;
+}
+
+.analyses-tab-menu-option:hover
+{
+    background-color: var(--option-hover-color);
+  
+}
+
+.analyses-tab-menu-option.active {
+  background-color: var(--option-hover-color);
+}
+
+.analyses-tab-pages {
+    padding: var(--application-body-tab-pages-padding);
+    width: 100vw;
+    min-width: 360px;
+    overflow: hidden;
+}

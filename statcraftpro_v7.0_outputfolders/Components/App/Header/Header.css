@@ -1,0 +1,89 @@
+.application-header {
+  flex-shrink: 0;
+  height: var(--application-header-height);
+  background-color: var(--primary-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.application-info {
+  height: 60%;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.application-menubar {
+  height: 40%;
+}
+
+.menubar-buttons-wrapper {
+  display: flex;
+  height: 100%;
+}
+
+.menubar-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 10px;
+  color: var(--light-text-color);
+  cursor: pointer;
+}
+
+.menubar-button.active {
+  background-color: var(--option-hover-color);
+}
+
+.menubar-button:hover {
+  background-color: var(--option-hover-color);
+}
+
+.menubar-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 10px;
+  color: var(--light-text-color);
+  cursor: pointer;
+}
+
+.menu-icon {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  position: relative;
+  padding: 2px;
+}
+
+.menu-icon div {
+  width: 100%;
+  height: 3px;
+  background-color: #c5c5c5;
+  position: absolute;
+  transition: transform 0.5s ease, opacity 0.5s ease, width 0.5s ease;
+  border-radius: 2px;
+}
+
+.bar1 {
+  top: 2px;
+}
+
+.bar2 {
+  top: 10px;
+}
+
+.bar3 {
+  top: 18px;
+}
+
+.menu-icon.change .bar1 {
+  transform: rotate(-45deg) translate(-3px, 3px);
+  width: 13px;
+}
+
+.menu-icon.change .bar2 {
+  opacity: 0;
+}
+
+.menu-icon.change .bar3 {
+  transform: rotate(45deg) translate(-3px, -3px);
+  width: 13px;
+}

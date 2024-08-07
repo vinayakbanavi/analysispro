@@ -1,0 +1,6 @@
+.viewcontainer{
+    position: relative;
+    height: var(--data-tab-viewcontainer-height);
+    padding-top: 1px;
+    overflow: hidden;
+}

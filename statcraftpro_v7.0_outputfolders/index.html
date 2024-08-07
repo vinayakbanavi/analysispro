@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- css imports -->
+    <link rel="stylesheet" href="Components/App/Style.css" />
+
+    <link rel="stylesheet" href="Components/App/Overlays/Overlays.css" />
+
+    <link rel="stylesheet" href="Components/App/Header/Header.css" />
+
+    <link rel="stylesheet" href="Components/App/Body/Body.css" />
+
+    <link rel="stylesheet" href="Components/App/Body/DataTab/DataTab.css" />
+
+    <link rel="stylesheet" href="Components/App/Body/DataTab/SourcePage/SourcePage.css" />
+    <link rel="stylesheet" href="Components/App/Body/DataTab/SourcePage/Views/EmptyGridPage/EmptyGridPage.css" />
+    <link rel="stylesheet" href="Components/App/Body/DataTab/SourcePage/Views/ContextMenu.css" />
+    <link rel="stylesheet" href="Components/App/Body/DataTab/SourcePage/Views/Views.css" />
+    <link rel="stylesheet" href="Components/App/Body/DataTab/SourcePage/Views/SourceSelectionPage/SourceSelectionPage.css" />
+    <link rel="stylesheet" href="Components/App/Body/DataTab/SourcePage/Views/DataPage/DataPage.css" />
+    <link rel="stylesheet" href="Components/App/Body/DataTab/SourcePage/Views/ControlBar.css" />
+    <link rel="stylesheet" href="Components/App/Body/DataTab/SourcePage/Views/MetaDataPage/MetaDataPage.css" />
+    <link rel="stylesheet" href="Components/App/Body/DataTab/SourcePage/Views/FiltersPage/FiltersPage.css" />
+
+    <link rel="stylesheet" href="Components/App/Body/AnalysisTab/AnalysisTab.css" />
+
+    <link rel="stylesheet" href="Components/App/Body/AnalysisTab/ExecutePage/ExecutePage.css" />
+    <link rel="stylesheet" href="Components/App/Body/AnalysisTab/ExecutePage/AnalysisSelection/AnalysisSelection.css" />
+    <link rel="stylesheet" href="Components/App/Body/AnalysisTab/ExecutePage/AnalysisInput/AnalysisInput.css">
+    <link rel="stylesheet" href="Components/App/Body/AnalysisTab/ExecutePage/AnalysisOutput/AnalysisOutput.css">
+
+    <link rel="stylesheet" href="Components/App/Body/AnalysisTab/OutputFoldersPage/OutputFolders.css" />
+
+    <link rel="stylesheet" href="Components/App/Footer/Footer.css" />
+
+    <!-- javascript imports -->
+
+    <!-- Dummy Data Remove This Later -->
+    <script src="DummyData/SourceListData.js"></script>
+    <script src="DummyData/SourceData.js"></script>
+    <script src="DummyData/MetaData.js"></script>
+    <script src="DummyData/FilterData.js"></script>
+    <script src="DummyData/AnalysisData.js"></script>
+    <script src="DummyData/FoldersData.js"></script>
+
+    <script src="Assets/jquery-3.7.0.min.js"></script>
+
+    <script src="Components/App/Script.js"></script>
+    <script src="Components/App/TableGenerationFunctions.js"></script>
+
+    <script src="Components/App/Overlays/Overlays.js"></script>
+
+    <script src="Components/App/Header/Header.js"></script>
+
+    <script src="Components/App/Body/DataTab/DataTab.js"></script>
+
+    <script src="Components/App/Body/DataTab/SourcePage/SourcePage.js"></script>
+    <script src="Components/App/Body/DataTab/SourcePage/Views/SourceSelectionPage/ContextMenu.js"></script>
+    <script src="Components/App/Body/DataTab/SourcePage/Views/SourceSelectionPage/SourceSelectionPage.js"></script>
+    <script src="Components/App/Body/DataTab/SourcePage/Views/EmptyGridPage/EmptyGridPage.js"></script>
+    <script src="Components/App/Body/DataTab/SourcePage/Views/DataPage/DataPage.js"></script>
+    <script src="Components/App/Body/DataTab/SourcePage/Views/MetaDataPage/MetaDataPage.js"></script>
+    <script src="Components/App/Body/DataTab/SourcePage/Views/MetaDataPage/ContextMenu.js"></script>
+    <script src="Components/App/Body/DataTab/SourcePage/Views/FiltersPage/FiltersPage.js"></script>
+
+    <script src="Components/App/Body/AnalysisTab/AnalysisTab.js"></script>
+
+    <script src="Components/App/Body/AnalysisTab/ExecutePage/ExecutePage.js"></script>
+    <script src="Components/App/Body/AnalysisTab/ExecutePage/AnalysisSelection/AnalysisSelection.js"></script>
+    <script src="Components/App/Body/AnalysisTab/ExecutePage/AnalysisInput/AnalysisInput.js"></script>
+    <script src="Components/App/Body/AnalysisTab/ExecutePage/AnalysisOutput/AnalysisOutput.js"></script>
+
+    <script src="Components/App/Body/AnalysisTab/OutputFoldersPage/OutputFolders.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet" />
+    <title>Statcraft Pro</title>
+  </head>
+
+  <body>
+    <div class="application-header">
+      <div class="application-info"></div>
+      <div class="application-menubar">
+        <div class="menubar-buttons-wrapper">
+          <div class="menubar-icon-container">
+            <div class="menu-icon" id="menuIcon" activetab="home-tab">
+              <div class="bar1"></div>
+              <div class="bar2"></div>
+              <div class="bar3"></div>
+            </div>
+          </div>
+          <div class="menubar-button active" show="home-tab">Home</div>
+          <div class="menubar-button" show="data-tab">Data</div>
+          <div class="menubar-button" show="analyses-tab">Analyses</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="application-body">
+      <!-- loader screen: controlled via javascript -->
+      <div class="loader-overlay" id="loaderOverlay" style="display: none">
+        <div class="loader"></div>
+      </div>
+
+      <!-- splash screen: controlled via javascript -->
+      <div class="splash-overlay" id="splashOverlay">
+        <div class="splashInfo" id="splashContent"></div>
+      </div>
+
+      <!-- Info screen: controlled via javascript -->
+      <div class="information-overlay" id="informationOverlay">
+        <div class="information-container">
+          <div class="information-header">
+            <h2 class="information-title">Information</h2>
+            <div class="information-close" id="informationClose">&times;</div>
+          </div>
+          <div class="information-content" id="informationContent"></div>
+        </div>
+      </div>
+
+      <div class="sidenav-container"></div>
+
+      <div class="application-content-wrapper">
+        <div class="tab-container home-tab-container" id="home-tab">
+          <h1>Home Tab</h1>
+        </div>
+
+        <!-- data container : Everything related to source and data views will be added here-->
+        <div class="tab-container data-tab-container" id="data-tab" style="display: none">
+          <div class="data-tab-menu" id="data-tab-menu" style="display: none" ishidden="true">
+            <div class="data-tab-menu-option active" show="data-tab-source-page">Source</div>
+            <div class="data-tab-menu-option" show="data-tab-import-page">Import</div>
+            <div class="data-tab-menu-option" show="data-tab-export-page">Export</div>
+          </div>
+
+          <div class="data-tab-pages" id="data-tab-pages">
+            <div class="data-tab-page" id="data-tab-source-page">
+              <div class="applicationviewcontrols_wrappper">
+                <div class="applicationview_controlbar">
+                  <!-- sourcename elements -->
+                  <div class="datatab-sourceselection-wrapper">
+                    <div class="datatab-sourceselection-searchbar-container">
+                      <div class="datatab-sourceselection-searchbar">
+                        <input type="text" id="datatab-sourceselection-searchbar" value="select source" activesource="emptydata" autocomplete="off" />
+                      </div>
+                      <div class="datatab-sourcelist-dropdown" id="datatab-sourcelist-dropdown">
+                       <img class="dropdownicon_image" src="./Assets/Images/icons/arrow_dropdown_light.svg" alt="">
+                      </div>
+                    </div>
+                    <div class="datatab-sourcelist-container custom-scrollbar-dark" id="datatab-sourcelist-container"></div>
+                  </div>
+
+                  <!-- viewlist elements -->
+                  <div class="controls_wrapper" id="view_controls" style="display: none">
+                    <div class="aciveview" id="activeview">
+                      <div class="data_sourcedata viewtabcontrol" id="sourcedata-tab">Data</div>
+                    </div>
+                    <div class="viewslist" id="viewslist">
+                      <div class="data_sourcemeta viewtabcontrol" id="metadata-tab">Meta Data</div>
+                      <div class="data_sourcefilters viewtabcontrol" id="filters-tab">Filters</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="data-tab-viewcontainers">
+                <div class="viewcontainer emptygrid_container" id="emptygrid"></div>
+                <div class="viewcontainer sourcelist_container" id="sourcelist"></div>
+                <div class="viewcontainer datagrid_container" id="datagrid"></div>
+                <div class="viewcontainer metadata_container" id="metadata"></div>
+                <div class="viewcontainer filters_container" id="filters"></div>
+              </div>
+
+              <!-- custom context menu on rightclick -->
+              <div id="sourcePageContextMenu" class="context-menu" activecontext="" style="display: none">
+                <div id="share_source" class="menu-option">
+                  <div class="context-menu-icon">
+                    <img class="context-menu-icon-img" src="./Assets/Images/icons/share.svg" alt="Share icon" />
+                  </div>
+                  <div class="context-menu-label">Share</div>
+                </div>
+                <div id="replicate_source" class="menu-option">
+                  <div class="context-menu-icon">
+                    <img class="context-menu-icon-img" src="./Assets/Images/icons/copy--file.svg" alt="Replicate icon" />
+                  </div>
+                  <div class="context-menu-label">Replicate</div>
+                </div>
+                <div id="export_source" class="menu-option">
+                  <div class="context-menu-icon">
+                    <img class="context-menu-icon-img" src="./Assets/Images/icons/export.svg" alt="Export icon" />
+                  </div>
+                  <div class="context-menu-label">Export</div>
+                </div>
+                <div id="clone_source" class="menu-option">
+                  <div class="context-menu-icon">
+                    <img class="context-menu-icon-img" src="./Assets/Images/icons/copy--file.svg" alt="Clone icon" />
+                  </div>
+                  <div class="context-menu-label">Clone</div>
+                </div>
+                <div id="delete_source" class="menu-option">
+                  <div class="context-menu-icon">
+                    <img class="context-menu-icon-img" src="./Assets/Images/icons/trash-can.svg" alt="Delete icon" />
+                  </div>
+                  <div class="context-menu-label">Delete</div>
+                </div>
+              </div>
+
+
+              <!-- custom context menu on rightclick -->
+              <div id="metadataPageContextMenu" class="context-menu" activecontext="" style="display: none">
+                <div id="delete_variable" class="menu-option">
+                  <div class="context-menu-icon">
+                    <img class="context-menu-icon-img" src="./Assets/Images/icons/trash-can.svg" alt="Delete icon" />
+                  </div>
+                  <div class="context-menu-label">Delete</div>
+                </div>
+              </div>
+
+            </div>
+            <div class="data-tab-page" id="data-tab-import-page" style="display: none">Import Page</div>
+            <div class="data-tab-page" id="data-tab-export-page" style="display: none">Export Page</div>
+          </div>
+        </div>
+
+        <div class="tab-container analyses-tab-container" id="analyses-tab" style="display: none">
+          <div class="analyses-tab-menu" id="analyses-tab-menu" style="display: none" ishidden="true">
+            <div class="analyses-tab-menu-option active" show="analyses-tab-page-execute">Execute</div>
+            <div class="analyses-tab-menu-option" show="analyses-tab-page-output-folders">Output Folders</div>
+          </div>
+
+          <div class="analyses-tab-pages" id="analyses-tab-pages">
+            <div class="analyses-tab-page analyses-tab-page-execute" id="analyses-tab-page-execute">
+              
+              <div class="projects-page-inputswrapper">
+                <div class="projects-input-header">
+                  <div class="projects-input-header-item analysistab-sourceselection-wrapper">
+                    <div class="searchbar-container">
+                      <div class="searchbar">
+                        <input class="searchbar-input" type="text" id="analysistab-sourceselection-searchbar" value="select source" activesource="emptydata" autocomplete="off" />
+                      </div>
+                      <div class="dropdown-toggle" id="analysistab-sourcelist-dropdown">
+                        <img class="dropdownicon_image" src="./Assets/Images/icons/arrow_dropdown_light.svg" alt="">
+                      </div>
+                    </div>
+                    <div class="dropdown-container custom-scrollbar-dark" id="analysistab-sourcelist-container"></div>
+                  </div>
+
+                  <div class="projects-input-header-item projects-input-header-item-analysisname">
+                    <div class="analysis-name" id="analysis-name"></div>
+                  </div>
+                </div>
+
+                <div class="analysis-input-container" id="analysis-input-container"></div>
+
+              </div>
+
+              <div class="projects-page-outputswrapper">
+                <div class="projects-output-header">
+                  <div class="projects-output-analysistype-selection">
+                    <div class="projects-input-header-item analysistab-analysistypeselection-wrapper">
+                      <!-- Analysis Type -->
+                      <div class="searchbar-container" id="AnalysisTypeContainer">
+                        <div class="searchbar">
+                          <input class="searchbar-input" type="text" id="AnalysisType" value="Descriptives" activeanalysistype="Descriptives" autocomplete="off" readonly />
+                        </div>
+                        <div class="dropdown-toggle" id="AnalysisTypeDropdown">
+                          <img class="dropdownicon_image" src="./Assets/Images/icons/arrow_dropdown_light.svg" alt="">
+                        </div>
+                      </div>
+                      <div class="dropdown-container custom-scrollbar-dark" id="AnalysisTypesList"></div>
+
+                      <!-- Analysis SubType -->
+                      <div class="searchbar-container" id="AnalysisSubTypeContainer" style="display: none">
+                        <div class="searchbar">
+                          <input class="searchbar-input" type="text" id="AnalysisSubType" value="All" activeanalysissubtype="All" autocomplete="off" readonly />
+                        </div>
+                        <div class="dropdown-toggle" id="AnalysisSubTypeDropdown">
+                          <img class="dropdownicon_image" src="./Assets/Images/icons/arrow_dropdown_light.svg" alt="">
+                        </div>
+                      </div>
+                      <div class="dropdown-container custom-scrollbar-dark" id="AnalysisSubTypesList"></div>
+                    </div>
+                  </div>
+
+                  <div class="projects-output-analysislist-container default" id="analysis-options-container">
+                    <div class="projects-output-analysislist-wrapper default" id="analysis-options-wrapper">
+                      <div class="projects-output-analysislist custom-scrollbar-light default" id="analysis-options-holder">
+
+                      </div>
+                      <div class="projects-output-analysislist-controls default" id="analysis-options-control">
+                        <img class="dropdownicon_image" src="./Assets/Images/icons/arrow_dropdown_dark.svg" alt="">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="projects-output-options"></div>
+                </div>
+
+                <div class="projects-output-display-container"></div>
+
+              </div>
+            </div>
+            <div class="analyses-tab-page analyses-tab-page-output-folders" id="analyses-tab-page-output-folders" style="display: none">
+              <div class="folder-page-header">
+                <div class="folder-tracker" id="folder-tracker"></div>
+                <div class="folder_controls" id="folder-controls">
+                  <div class="output-searchbar-container">
+                    <div class="output-searchbar-wrapper">
+                      <div class="searchbar-input-container">
+                        <input class="output-search" type="text" placeholder="Enter your text">
+                      </div>
+                      <div class="searchbar-icon-container">
+                        <img class="search-icon" src="./Assets/Images/output_folders/controls/searchicon_gray.svg" alt="">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="output-options-container">
+                    <div class="output-option view" id="changeview" title="view list" activestyle="grid">
+                      <img class="output-option-icon" src="./Assets/Images/output_folders/controls/view_list_gray.svg" alt="">
+                    </div>
+                    <div class="output-option filter" id="applyfilter" title="apply filters">
+                      <img class="output-option-icon" src="./Assets/Images/output_folders/controls/filter_gray.svg" alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="folder-tabs">
+                <div class="folder-tab folders-container custom-scrollbar-light" id="output-folders-container">
+                  
+
+                  <!-- folder style for list -->
+                  <!-- <div class="folder folderlist" foldername="Default">
+                    <div class="folder-image-container">
+                      <img class="folder-image" src="./Assets/Images/output_folders/filesystemicons/filled/folder_filled.svg" alt="">
+                    </div>
+                    <div class="folder-details-static">
+                      <div class="folder-name">Default</div>
+                      <div class="folder-description">Default for outputs</div>
+                      <div class="folder-created">Created : Jul 21, 2024</div>
+                    </div>
+                    <div class="folder-details-dynamic">
+                      <div class="empty"></div>
+                      <div class="folder-size">10 MB</div>
+                      <div class="folder-modified">Modified : Jul 25, 2024</div>
+                    </div>
+                  </div> -->
+
+                </div>
+                <div class="folder-tab files-container"  style="display: none;" id="output-files-container">
+                  <!-- <div class="output-file" filename = "">
+                    <div class="file-image-container">
+                      <img class="file-image" src="./Assets/Images/output_folders/filesystemicons/filled/file_basic.svg" alt="">
+                    </div>
+                    <div class="folder-label-container">
+                      <p class="file-name">One Sample t-Test</p>
+                    </div>
+                  </div> -->
+
+                  <!-- output file style for list -->
+                  <!-- <div class="output-file filelist" outputname="Frequencies" outputid="1">
+                    <div class="file-image-container">
+                      <img class="file-image" src="./Assets/Images/output_folders/filesystemicons/outline/report_icon.svg" alt="">
+                    </div>
+                    <div class="file-details-static">
+                      <div class="title">Descriptives analysis for Iris Data</div>
+                      <div class="analysisname">Descriptives</div>
+                      <div class="metainfo">
+                        <span class="dataset">Dataset : iris</span>
+                        <span class="filter">Filter : Default</span>
+                        <span class="datetime">Jul 23, 2024 | 12:30:16</span>
+                      </div>
+                    </div>
+                    <div class="file-details-dynamic">
+                      <div class="empty"></div>
+                      <div class="file-size">100 KB</div>
+                      <div class="empty"></div>
+                    </div>
+                  </div> -->
+                </div>
+                <div class="folder-tab output-window" style="display: none;" id="output-display-container"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- sidenav status info container to display asynchronous activity and status -->
+      <div class="sidenav-status-info"></div>
+    </div>
+    <div class="application-footer" style="display: none">
+      <div class="application-contact-info"></div>
+    </div>
+  </body>
+</html>
